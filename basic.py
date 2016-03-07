@@ -118,6 +118,26 @@ def application_open(response_json):
 		if(response_json['result']['parameters']['Applications'] == "Vim"):
 			os.system('vim')
 
+# sudo apt-get install xbacklight -- screen brightness control thru terminal
+# xbacklight -inc 50
+# xbacklight -dec 20
+def increase_screenbright(response_json):
+	print "Increasing the screen brightness by " + response_json['result']['parameters']['number'] + " percent"
+	increase_string = 'xbacklight -inc ' + response_json['result']['parameters']['number']
+	os.system(increase_string)
+	print response_json['result']['fulfillment']['speech']
+
+def decrease_screenbright(response_json):
+	print "Decreasing the screen brightness by " + response_json['result']['parameters']['number'] + " percent"
+	decrease_string = 'xbacklight -dec ' + response_json['result']['parameters']['number']
+	os.system(decrease_string)
+	print response_json['result']['fulfillment']['speech']
+
+def screenshot(response_json):
+	print "Bro,... Ask your monitor to say cheese !!!!"
+	os.system('gnome-screenshot')
+	print response_json['result']['fulfillment']['speech']
+
 def main():
     resampler = apiai.Resampler(source_samplerate=RATE)
     vad = apiai.VAD()
@@ -169,10 +189,15 @@ def main():
 
     if(response_json['result']['source'] == 'domains' and response_json['result']['action'] == 'web.search'):
     	web_search(response_json)
-    if(response_json['result']['source'] == 'agent' and response_json['result']['metadata']['intentId'] == 'c9ce76e4-c303-48ba-b2c6-c3f667a097ba'):
+    elif(response_json['result']['source'] == 'agent' and response_json['result']['metadata']['intentId'] == 'c9ce76e4-c303-48ba-b2c6-c3f667a097ba'):
     	webpage_open(response_json)
-    if(response_json['result']['source'] == 'agent' and response_json['result']['metadata']['intentId'] == 'a8e2ef36-c808-45e0-aa97-e7ac37008557'):
+    elif(response_json['result']['source'] == 'agent' and response_json['result']['metadata']['intentId'] == 'a8e2ef36-c808-45e0-aa97-e7ac37008557'):
     	application_open(response_json)
-
+    elif(response_json['result']['source'] == 'agent' and response_json['result']['metadata']['intentId'] == '75eefcad-dfd0-4a23-9325-34d7204e0850'):
+    	increase_screenbright(response_json)
+    elif(response_json['result']['source'] == 'agent' and response_json['result']['metadata']['intentId'] == '97fdce22-d080-4a3d-8316-53314707aa31'):
+    	decrease_screenbright(response_json)
+    elif(response_json['result']['source'] == 'agent' and response_json['result']['metadata']['intentId'] == '1093f02f-db86-40ba-ab25-ee81d222604e'):
+    	screenshot(response_json)
 if __name__ == '__main__':
     main()
