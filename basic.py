@@ -88,6 +88,36 @@ def webpage_open(response_json):
 			shush = "https://shush.se/"
 			driver.get(shush)
 
+def application_open(response_json):
+	Applications = {'Google Chrome', 'Firefox', 'Terminal', 'Sublime Text', 'Tixati', 'Files', 'Virtual Box', 'Software Center', 'Wine', 'VLC', 'Office', 'Vim'}
+	print "Opening " + response_json['result']['parameters']['Applications'] + " ..."
+	print response_json['result']['fulfillment']['speech']
+	if(response_json['result']['parameters']['Applications'] in Applications):
+		if(response_json['result']['parameters']['Applications'] == "Google Chrome"):
+			os.system('google-chrome')
+		if(response_json['result']['parameters']['Applications'] == "Firefox"):
+			os.system('firefox')
+		if(response_json['result']['parameters']['Applications'] == "Terminal"):
+			os.system('gnome-terminal')
+		if(response_json['result']['parameters']['Applications'] == "Sublime Text"):
+			os.system('subl')
+		if(response_json['result']['parameters']['Applications'] == "Tixati"):
+			os.system('tixati')
+		if(response_json['result']['parameters']['Applications'] == "Files"):
+			os.system('nemo')
+		if(response_json['result']['parameters']['Applications'] == "Virtual Box"):
+			os.system('virtualbox')
+		if(response_json['result']['parameters']['Applications'] == "Software Center"):
+			os.system('mintinstall')
+		if(response_json['result']['parameters']['Applications'] == "Wine"):
+			os.system('wine')
+		if(response_json['result']['parameters']['Applications'] == "VLC"):
+			os.system('vlc')
+		if(response_json['result']['parameters']['Applications'] == "Office"):
+			os.system('libreoffice')
+		if(response_json['result']['parameters']['Applications'] == "Vim"):
+			os.system('vim')
+
 def main():
     resampler = apiai.Resampler(source_samplerate=RATE)
     vad = apiai.VAD()
@@ -131,16 +161,18 @@ def main():
     stream.close()
     p.terminate()
 
-    print ("Give me a second bro,... fetching the results!")
+    print ("Give me a second bro,... Will be back with what you want right away!")
     response = request.getresponse()
 
-    string = response.read().decode('utf-8')
-    response_json = json.loads(string)
+    response_string = response.read().decode('utf-8')
+    response_json = json.loads(response_string)
 
     if(response_json['result']['source'] == 'domains' and response_json['result']['action'] == 'web.search'):
     	web_search(response_json)
     if(response_json['result']['source'] == 'agent' and response_json['result']['metadata']['intentId'] == 'c9ce76e4-c303-48ba-b2c6-c3f667a097ba'):
     	webpage_open(response_json)
+    if(response_json['result']['source'] == 'agent' and response_json['result']['metadata']['intentId'] == 'a8e2ef36-c808-45e0-aa97-e7ac37008557'):
+    	application_open(response_json)
 
 if __name__ == '__main__':
     main()
