@@ -1,0 +1,69 @@
+{
+  "id": "a8e2ef36-c808-45e0-aa97-e7ac37008557",
+  "name": "Opening Applications",
+  "auto": true,
+  "contexts": [],
+  "userSays": [
+    {
+      "data": [
+        {
+          "text": "Open @Applications:Applications"
+        }
+      ],
+      "isTemplate": true
+    },
+    {
+      "data": [
+        {
+          "text": "Fire up @Applications:Applications"
+        }
+      ],
+      "isTemplate": true
+    },
+    {
+      "data": [
+        {
+          "text": "Bro, can you please open @Applications:Applications"
+        }
+      ],
+      "isTemplate": true
+    },
+    {
+      "data": [
+        {
+          "text": "It\u0027s time to open @Applications:Applications"
+        }
+      ],
+      "isTemplate": true
+    }
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "required": true,
+          "dataType": "@Applications",
+          "name": "Applications",
+          "value": "$Applications",
+          "prompts": [
+            "Sorry bro,... The application you requested has not been officially added! ;("
+          ]
+        }
+      ],
+      "speech": [
+        "Sure bro,... opening $Applications right away!",
+        "$Applications coming right away bro,... In a jiffy!",
+        "The application $Applications you asked is coming right up!"
+      ]
+    }
+  ],
+  "state": "LEARNED",
+  "priority": 500000,
+  "assistantCommand": {
+    "urlCommand": "",
+    "doCommand": ""
+  },
+  "webhookUsed": false
+}

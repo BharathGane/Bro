@@ -1,0 +1,95 @@
+{
+  "id": "0f8afbdf-6b4f-4481-80cc-3a6df906e6c1",
+  "name": "Applications",
+  "isOverridable": true,
+  "entries": [
+    {
+      "value": "Google Chrome",
+      "synonyms": [
+        "Google Chrome",
+        "Chrome"
+      ]
+    },
+    {
+      "value": "Firefox",
+      "synonyms": [
+        "Firefox",
+        "Fox"
+      ]
+    },
+    {
+      "value": "Terminal",
+      "synonyms": [
+        "Terminal"
+      ]
+    },
+    {
+      "value": "Sublime Text",
+      "synonyms": [
+        "Sublime Text",
+        "Sublime",
+        "Text"
+      ]
+    },
+    {
+      "value": "Tixati",
+      "synonyms": [
+        "Tixati",
+        "tix"
+      ]
+    },
+    {
+      "value": "Files",
+      "synonyms": [
+        "Files",
+        "File Manager",
+        "Explorer"
+      ]
+    },
+    {
+      "value": "Virtual Box",
+      "synonyms": [
+        "Virtual Box",
+        "VM"
+      ]
+    },
+    {
+      "value": "Software Center",
+      "synonyms": [
+        "Software Center",
+        "Softwares",
+        "App Store"
+      ]
+    },
+    {
+      "value": "Wine",
+      "synonyms": [
+        "Wine"
+      ]
+    },
+    {
+      "value": "VLC",
+      "synonyms": [
+        "VLC",
+        "V L C"
+      ]
+    },
+    {
+      "value": "Office",
+      "synonyms": [
+        "Office",
+        "Libre"
+      ]
+    },
+    {
+      "value": "Vim",
+      "synonyms": [
+        "Vim",
+        "vi",
+        "v i m"
+      ]
+    }
+  ],
+  "isEnum": false,
+  "automatedExpansion": true
+}

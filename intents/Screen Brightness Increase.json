@@ -1,0 +1,69 @@
+{
+  "id": "75eefcad-dfd0-4a23-9325-34d7204e0850",
+  "name": "Screen Brightness Increase",
+  "auto": true,
+  "contexts": [],
+  "userSays": [
+    {
+      "data": [
+        {
+          "text": "Increase screen brightness by @sys.number:number  percent"
+        }
+      ],
+      "isTemplate": true
+    },
+    {
+      "data": [
+        {
+          "text": "Bro, can you please increase the screen brightness by @sys.number:number  percent"
+        }
+      ],
+      "isTemplate": true
+    },
+    {
+      "data": [
+        {
+          "text": "The screen is a bit dark bro. Can you increase the screen brightness by @sys.number:number  percent"
+        }
+      ],
+      "isTemplate": true
+    },
+    {
+      "data": [
+        {
+          "text": "Increase brightness @sys.number:number  percent"
+        }
+      ],
+      "isTemplate": true
+    }
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "increase.brightness",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "required": true,
+          "dataType": "@sys.number",
+          "name": "number",
+          "value": "$number",
+          "prompts": [
+            "Sorry bro, can you tell me a bit more clearly. Can\u0027t understand your request! :("
+          ]
+        }
+      ],
+      "speech": [
+        "Sure thing,... Increasing the screen brightness by $number",
+        "Has increasing the brightness by $number helped ?"
+      ]
+    }
+  ],
+  "state": "LEARNED",
+  "priority": 500000,
+  "assistantCommand": {
+    "urlCommand": "",
+    "doCommand": ""
+  },
+  "webhookUsed": false
+}

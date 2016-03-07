@@ -1,0 +1,66 @@
+{
+  "id": "97fdce22-d080-4a3d-8316-53314707aa31",
+  "name": "Screen Brightness Decrease",
+  "auto": true,
+  "contexts": [],
+  "userSays": [
+    {
+      "data": [
+        {
+          "text": "Decrease screen brightness by @sys.number:number  percent"
+        }
+      ],
+      "isTemplate": true
+    },
+    {
+      "data": [
+        {
+          "text": "Bro, can you please decrease the screen brightness by @sys.number:number  percent"
+        }
+      ],
+      "isTemplate": true
+    },
+    {
+      "data": [
+        {
+          "text": "The screen is a bit bright bro. Can you decrease the screen brightness by @sys.number:number  percent"
+        }
+      ],
+      "isTemplate": true
+    },
+    {
+      "data": [
+        {
+          "text": "Decrease brightness @sys.number:number  percent"
+        }
+      ],
+      "isTemplate": true
+    }
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "decrease.brightness",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "required": true,
+          "dataType": "@sys.number",
+          "name": "number",
+          "value": "$number"
+        }
+      ],
+      "speech": [
+        "Sure thing,... Decreasing the screen brightness by $number",
+        "Has decreasing the brightness by $number helped ?"
+      ]
+    }
+  ],
+  "state": "LEARNED",
+  "priority": 500000,
+  "assistantCommand": {
+    "urlCommand": "",
+    "doCommand": ""
+  },
+  "webhookUsed": false
+}

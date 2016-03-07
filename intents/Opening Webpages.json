@@ -1,0 +1,76 @@
+{
+  "id": "c9ce76e4-c303-48ba-b2c6-c3f667a097ba",
+  "name": "Opening Webpages",
+  "auto": true,
+  "contexts": [],
+  "userSays": [
+    {
+      "data": [
+        {
+          "text": "Bro, can you please open @Websites:Websites"
+        }
+      ],
+      "isTemplate": true
+    },
+    {
+      "data": [
+        {
+          "text": "Can you please open @Websites:Websites for me bro ?"
+        }
+      ],
+      "isTemplate": true
+    },
+    {
+      "data": [
+        {
+          "text": "Load up @Websites:Websites"
+        }
+      ],
+      "isTemplate": true
+    },
+    {
+      "data": [
+        {
+          "text": "Fire up @Websites:Websites"
+        }
+      ],
+      "isTemplate": true
+    },
+    {
+      "data": [
+        {
+          "text": "Open @Websites:Websites"
+        }
+      ],
+      "isTemplate": true
+    }
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "browse.open",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "required": true,
+          "dataType": "@Websites",
+          "name": "Websites",
+          "value": "$Websites",
+          "prompts": []
+        }
+      ],
+      "speech": [
+        "Sure, bro! Opening up $Websites",
+        "Opening $Websites up in a jiffy bro !",
+        "$Websites coming right away, bro!"
+      ]
+    }
+  ],
+  "state": "LEARNED",
+  "priority": 500000,
+  "assistantCommand": {
+    "urlCommand": "",
+    "doCommand": ""
+  },
+  "webhookUsed": false
+}

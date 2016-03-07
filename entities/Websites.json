@@ -1,0 +1,96 @@
+{
+  "id": "c701ef6f-d9e0-4b89-896d-120c25be480b",
+  "name": "Websites",
+  "isOverridable": true,
+  "entries": [
+    {
+      "value": "Google",
+      "synonyms": [
+        "Google"
+      ]
+    },
+    {
+      "value": "Facebook",
+      "synonyms": [
+        "Facebook",
+        "fb"
+      ]
+    },
+    {
+      "value": "YouTube",
+      "synonyms": [
+        "YouTube"
+      ]
+    },
+    {
+      "value": "Gmail",
+      "synonyms": [
+        "Gmail",
+        "Google Mail"
+      ]
+    },
+    {
+      "value": "Outlook",
+      "synonyms": [
+        "Outlook",
+        "Office365"
+      ]
+    },
+    {
+      "value": "GitHub",
+      "synonyms": [
+        "GitHub",
+        "Git",
+        "Bucket"
+      ]
+    },
+    {
+      "value": "DuckDuckGo",
+      "synonyms": [
+        "DuckDuckGo",
+        "Ducky",
+        "Duck Duck Go"
+      ]
+    },
+    {
+      "value": "Quora",
+      "synonyms": [
+        "Quora",
+        "Q"
+      ]
+    },
+    {
+      "value": "Kickass",
+      "synonyms": [
+        "Kickass",
+        "kat.cr",
+        "kat",
+        "Kick",
+        "Ass"
+      ]
+    },
+    {
+      "value": "Pirate Bay",
+      "synonyms": [
+        "Pirate Bay",
+        "Pirate"
+      ]
+    },
+    {
+      "value": "Yify",
+      "synonyms": [
+        "Yify",
+        "Y T S"
+      ]
+    },
+    {
+      "value": "Shush",
+      "synonyms": [
+        "Shush",
+        "Shu"
+      ]
+    }
+  ],
+  "isEnum": false,
+  "automatedExpansion": true
+}

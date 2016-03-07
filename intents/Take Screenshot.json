@@ -1,0 +1,67 @@
+{
+  "id": "1093f02f-db86-40ba-ab25-ee81d222604e",
+  "name": "Take Screenshot",
+  "auto": true,
+  "contexts": [],
+  "userSays": [
+    {
+      "data": [
+        {
+          "text": "Bro, can you take a screen shot ?"
+        }
+      ],
+      "isTemplate": false
+    },
+    {
+      "data": [
+        {
+          "text": "Take screen shot"
+        }
+      ],
+      "isTemplate": false
+    },
+    {
+      "data": [
+        {
+          "text": "Capture the screen"
+        }
+      ],
+      "isTemplate": false
+    },
+    {
+      "data": [
+        {
+          "text": "Bro, screen capture"
+        }
+      ],
+      "isTemplate": false
+    },
+    {
+      "data": [
+        {
+          "text": "Capture screen"
+        }
+      ],
+      "isTemplate": false
+    }
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "capture.screen",
+      "affectedContexts": [],
+      "parameters": [],
+      "speech": [
+        "Click! Captured your screen. Check ~/Pictures to find it ;)",
+        "A moment of your screen has been captured. Check ~/Pictures to find it ;)"
+      ]
+    }
+  ],
+  "state": "LEARNED",
+  "priority": 500000,
+  "assistantCommand": {
+    "urlCommand": "",
+    "doCommand": ""
+  },
+  "webhookUsed": false
+}
