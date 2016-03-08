@@ -1,0 +1,66 @@
+{
+  "id": "d0c0f45d-494e-43ef-88a4-b294302224b1",
+  "name": "Decrease Volume",
+  "auto": true,
+  "contexts": [],
+  "userSays": [
+    {
+      "data": [
+        {
+          "text": "Decrease the volume by @sys.percentage:percentage"
+        }
+      ],
+      "isTemplate": true
+    },
+    {
+      "data": [
+        {
+          "text": "Decrease volume by @sys.percentage:percentage"
+        }
+      ],
+      "isTemplate": true
+    },
+    {
+      "data": [
+        {
+          "text": "Pull down the stereo output by @sys.percentage:percentage"
+        }
+      ],
+      "isTemplate": true
+    },
+    {
+      "data": [
+        {
+          "text": "Reduce the output by @sys.percentage:percentage"
+        }
+      ],
+      "isTemplate": true
+    }
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "decrease.volume",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "required": true,
+          "dataType": "@sys.percentage",
+          "name": "percentage",
+          "value": "$percentage"
+        }
+      ],
+      "speech": [
+        "Decreasing the output by $percentage",
+        "Pulling down the stereo output by $percentage"
+      ]
+    }
+  ],
+  "state": "LEARNED",
+  "priority": 500000,
+  "assistantCommand": {
+    "urlCommand": "",
+    "doCommand": ""
+  },
+  "webhookUsed": false
+}

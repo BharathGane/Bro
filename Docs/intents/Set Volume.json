@@ -1,0 +1,74 @@
+{
+  "id": "598356c2-56e2-457c-96ab-945daba11158",
+  "name": "Set Volume",
+  "auto": true,
+  "contexts": [],
+  "userSays": [
+    {
+      "data": [
+        {
+          "text": "Set the volume to @sys.percentage:percentage"
+        }
+      ],
+      "isTemplate": true
+    },
+    {
+      "data": [
+        {
+          "text": "Make the volume @sys.percentage:percentage"
+        }
+      ],
+      "isTemplate": true
+    },
+    {
+      "data": [
+        {
+          "text": "Adjust volume to @sys.percentage:percentage"
+        }
+      ],
+      "isTemplate": true
+    },
+    {
+      "data": [
+        {
+          "text": "set volume to @sys.percentage:percentage"
+        }
+      ],
+      "isTemplate": true
+    },
+    {
+      "data": [
+        {
+          "text": "Make volume @sys.percentage:percentage"
+        }
+      ],
+      "isTemplate": true
+    }
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "set.volume",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "required": true,
+          "dataType": "@sys.percentage",
+          "name": "percentage",
+          "value": "$percentage"
+        }
+      ],
+      "speech": [
+        "Setting the volume to $percentage",
+        "The volume is now at $percentage bro!"
+      ]
+    }
+  ],
+  "state": "LEARNED",
+  "priority": 500000,
+  "assistantCommand": {
+    "urlCommand": "",
+    "doCommand": ""
+  },
+  "webhookUsed": false
+}

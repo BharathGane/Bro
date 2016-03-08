@@ -1,0 +1,74 @@
+{
+  "id": "a5d96aad-68a8-409a-a4aa-d6bbd35b67e5",
+  "name": "Increase Volume",
+  "auto": true,
+  "contexts": [],
+  "userSays": [
+    {
+      "data": [
+        {
+          "text": "Increase the volume by @sys.percentage:percentage"
+        }
+      ],
+      "isTemplate": true
+    },
+    {
+      "data": [
+        {
+          "text": "Increase volume by @sys.percentage:percentage"
+        }
+      ],
+      "isTemplate": true
+    },
+    {
+      "data": [
+        {
+          "text": "Pull up the stereo output by @sys.percentage:percentage"
+        }
+      ],
+      "isTemplate": true
+    },
+    {
+      "data": [
+        {
+          "text": "Raise the output by @sys.percentage:percentage"
+        }
+      ],
+      "isTemplate": true
+    },
+    {
+      "data": [
+        {
+          "text": "volume increase @sys.percentage:percentage"
+        }
+      ],
+      "isTemplate": true
+    }
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "increase.volume",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "required": true,
+          "dataType": "@sys.percentage",
+          "name": "percentage",
+          "value": "$percentage"
+        }
+      ],
+      "speech": [
+        "Increasing the output by $percentage",
+        "Pulling up the stereo output by $percentage"
+      ]
+    }
+  ],
+  "state": "LEARNED",
+  "priority": 500000,
+  "assistantCommand": {
+    "urlCommand": "",
+    "doCommand": ""
+  },
+  "webhookUsed": false
+}

@@ -1,0 +1,56 @@
+{
+  "id": "f8696f2b-08bb-4882-8b04-b45af2124197",
+  "name": "Check LMS",
+  "auto": true,
+  "contexts": [],
+  "userSays": [
+    {
+      "data": [
+        {
+          "text": "Bro, can you please see if i have any new assignments or forum posts ?"
+        }
+      ],
+      "isTemplate": false
+    },
+    {
+      "data": [
+        {
+          "text": "Check assignments and forum posts in L M S"
+        }
+      ],
+      "isTemplate": false
+    },
+    {
+      "data": [
+        {
+          "text": "Check out L M S"
+        }
+      ],
+      "isTemplate": false
+    },
+    {
+      "data": [
+        {
+          "text": "Any new notifications in the LMS ?"
+        }
+      ],
+      "isTemplate": false
+    }
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "lms.notif",
+      "affectedContexts": [],
+      "parameters": [],
+      "speech": "Here are your L M S notifications !"
+    }
+  ],
+  "state": "LEARNED",
+  "priority": 500000,
+  "assistantCommand": {
+    "urlCommand": "",
+    "doCommand": ""
+  },
+  "webhookUsed": false
+}

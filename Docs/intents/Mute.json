@@ -1,0 +1,71 @@
+{
+  "id": "9ec0aa5d-cf1d-4b9d-9662-595afe3076c6",
+  "name": "Mute",
+  "auto": true,
+  "contexts": [],
+  "userSays": [
+    {
+      "data": [
+        {
+          "text": "Can you please shut up"
+        }
+      ],
+      "isTemplate": false
+    },
+    {
+      "data": [
+        {
+          "text": "Mute"
+        }
+      ],
+      "isTemplate": false
+    },
+    {
+      "data": [
+        {
+          "text": "Mute audio playback"
+        }
+      ],
+      "isTemplate": false
+    },
+    {
+      "data": [
+        {
+          "text": "Set volume to "
+        },
+        {
+          "text": "0 percent",
+          "alias": "percentage",
+          "meta": "@sys.percentage",
+          "userDefined": false
+        }
+      ],
+      "isTemplate": false
+    }
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "mute.volume",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "dataType": "@sys.percentage",
+          "name": "percentage",
+          "value": "$percentage"
+        }
+      ],
+      "speech": [
+        "Sure bro,... muting audio playback",
+        "Shutting up ! ;)"
+      ]
+    }
+  ],
+  "state": "LEARNED",
+  "priority": 500000,
+  "assistantCommand": {
+    "urlCommand": "",
+    "doCommand": ""
+  },
+  "webhookUsed": false
+}

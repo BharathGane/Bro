@@ -88,6 +88,14 @@
         "vi",
         "v i m"
       ]
+    },
+    {
+      "value": "Calculator",
+      "synonyms": [
+        "Calculator",
+        "Calc",
+        "Calci"
+      ]
     }
   ],
   "isEnum": false,

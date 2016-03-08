@@ -3,15 +3,17 @@ import json
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
+#Check if API.AI module is available
 try:
     import apiai
 except ImportError:
     sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), os.pardir))
     import apiai
 
-import pyaudio
 import time
+import pyaudio
 
+# PyAudio Initialize
 CHUNK = 1024
 FORMAT = pyaudio.paInt16
 CHANNELS = 1
@@ -118,9 +120,6 @@ def application_open(response_json):
 		if(response_json['result']['parameters']['Applications'] == "Vim"):
 			os.system('vim')
 
-# sudo apt-get install xbacklight -- screen brightness control thru terminal
-# xbacklight -inc 50
-# xbacklight -dec 20
 def increase_screenbright(response_json):
 	print "Increasing the screen brightness by " + response_json['result']['parameters']['number'] + " percent"
 	increase_string = 'xbacklight -inc ' + response_json['result']['parameters']['number']
@@ -138,6 +137,32 @@ def screenshot(response_json):
 	os.system('gnome-screenshot')
 	print response_json['result']['fulfillment']['speech']
 
+def LMSCheck(response_json):
+	os.system('cd Docs && python LMS.py')
+
+def mute(response_json):
+	os.system('amixer -D pulse sset Master mute')
+	print response_json['result']['fulfillment']['speech']
+
+def unmute(response_json):
+	os.system('amixer -D pulse sset Master unmute')
+	print response_json['result']['fulfillment']['speech']
+
+def set_volume(response_json):
+	set_string = 'amixer -D pulse sset Master ' + response_json['result']['parameters']['percentage']
+	os.system(set_string)
+	print response_json['result']['fulfillment']['speech']
+
+def increase_volume(response_json):
+	increase_string = 'amixer -D pulse sset Master ' + response_json['result']['parameters']['percentage'] + '+'
+	os.system(increase_string)
+	print response_json['result']['fulfillment']['speech']
+
+def decrease_volume(response_json):
+	decrease_string = 'amixer -D pulse sset Master ' + response_json['result']['parameters']['percentage'] + '-'
+	os.system(decrease_string)
+	print response_json['result']['fulfillment']['speech']
+
 def main():
     resampler = apiai.Resampler(source_samplerate=RATE)
     vad = apiai.VAD()
@@ -145,7 +170,7 @@ def main():
     request = ai.voice_request()
     request.lang = 'en'
 
-    def callback(in_data, frame_count, time_info, status):
+    def stream_callback(in_data, frame_count, time_info, status):
         frames, data = resampler.resample(in_data, frame_count)
         state = vad.processFrame(frames)
         request.send(data)
@@ -163,11 +188,11 @@ def main():
                     input=True,
                     output=False,
                     frames_per_buffer=CHUNK,
-                    stream_callback=callback)
+                    stream_callback=stream_callback)
 
-    stream.start_stream()
 
     print ("Hello bro, what would you like to do ?!")
+    stream.start_stream()
 
     try:
         while stream.is_active():
@@ -189,15 +214,28 @@ def main():
 
     if(response_json['result']['source'] == 'domains' and response_json['result']['action'] == 'web.search'):
     	web_search(response_json)
-    elif(response_json['result']['source'] == 'agent' and response_json['result']['metadata']['intentId'] == 'c9ce76e4-c303-48ba-b2c6-c3f667a097ba'):
+    elif(response_json['result']['source'] == 'agent' and response_json['result']['action'] == 'browse.open'):
     	webpage_open(response_json)
-    elif(response_json['result']['source'] == 'agent' and response_json['result']['metadata']['intentId'] == 'a8e2ef36-c808-45e0-aa97-e7ac37008557'):
+    elif(response_json['result']['source'] == 'agent' and response_json['result']['action'] == 'app.open'):
     	application_open(response_json)
-    elif(response_json['result']['source'] == 'agent' and response_json['result']['metadata']['intentId'] == '75eefcad-dfd0-4a23-9325-34d7204e0850'):
+    elif(response_json['result']['source'] == 'agent' and response_json['result']['action'] == 'increase.brightness'):
     	increase_screenbright(response_json)
-    elif(response_json['result']['source'] == 'agent' and response_json['result']['metadata']['intentId'] == '97fdce22-d080-4a3d-8316-53314707aa31'):
+    elif(response_json['result']['source'] == 'agent' and response_json['result']['action'] == 'decrease.brightness'):
     	decrease_screenbright(response_json)
-    elif(response_json['result']['source'] == 'agent' and response_json['result']['metadata']['intentId'] == '1093f02f-db86-40ba-ab25-ee81d222604e'):
+    elif(response_json['result']['source'] == 'agent' and response_json['result']['action'] == 'capture.screen'):
     	screenshot(response_json)
+    elif(response_json['result']['source'] == 'agent' and response_json['result']['action'] == 'lms.notif'):
+    	LMSCheck(response_json)
+    elif(response_json['result']['source'] == 'agent' and response_json['result']['action'] == 'set.volume'):
+    	set_volume(response_json)
+    elif(response_json['result']['source'] == 'agent' and response_json['result']['action'] == 'mute.volume'):
+    	mute(response_json)
+    elif(response_json['result']['source'] == 'agent' and response_json['result']['action'] == 'unmute.volume'):
+    	unmute(response_json)
+    elif(response_json['result']['source'] == 'agent' and response_json['result']['action'] == 'increase.volume'):
+    	increase_volume(response_json)
+    elif(response_json['result']['source'] == 'agent' and response_json['result']['action'] == 'decrease.volume'):
+    	decrease_volume(response_json)
+
 if __name__ == '__main__':
     main()

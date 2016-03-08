@@ -1,0 +1,43 @@
+{
+  "id": "a8a12eb9-31bb-405e-a50f-1faa7e965120",
+  "name": "Un Mute",
+  "auto": true,
+  "contexts": [],
+  "userSays": [
+    {
+      "data": [
+        {
+          "text": "Un mute"
+        }
+      ],
+      "isTemplate": false
+    },
+    {
+      "data": [
+        {
+          "text": "You may continue playing out loud"
+        }
+      ],
+      "isTemplate": false
+    }
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "unmute.volume",
+      "affectedContexts": [],
+      "parameters": [],
+      "speech": [
+        "Sure, bro! Un muting the audio playback !",
+        "Back to rocking the stereo ! :D"
+      ]
+    }
+  ],
+  "state": "LEARNED",
+  "priority": 500000,
+  "assistantCommand": {
+    "urlCommand": "",
+    "doCommand": ""
+  },
+  "webhookUsed": false
+}
