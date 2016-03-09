@@ -1,3 +1,8 @@
+#!/usr/local/bin/env python
+
+# This script is my first try at web scraping, aimed at students of IIIT-B, to quickly check notifications, new assignments and forum posts in LMS portal.
+# Script under development, further features will be added as and when I find free time :p ;)
+
 import re
 import requests
 import selenium
@@ -9,7 +14,7 @@ from selenium.webdriver.support.ui import Select
 
 s = requests.session()
 
-payload={'username':'IMTXXXXXXX', 'password':'XXXXXXXXXXXX'}
+payload={'username':'IMTXXXXXXX', 'password':'XXXXXX'}
 
 def login():
     url = s.post('https://lms.iiitb.ac.in/moodle/login/index.php', data=payload, verify=False)
@@ -22,6 +27,7 @@ def login():
     else:
         print "Not logged in"
         return 0;
+
 def individual_details(link):
     url = s.get(link)
     soup = BeautifulSoup(url.text)
@@ -32,8 +38,8 @@ def individual_details(link):
     for i in details:
         link = i.findChildren()[0]['href']
         if(len(details)>=1):
-            print "\t" + data[j]
-            print "\t" + "Link :" + link
+            print "\t" + '"\033[1m' + data[j] + '\033[0m"'
+            print "\t    " + "Link :" + link
             j+=1
     print "\n"
 
@@ -48,7 +54,7 @@ def check_new_assignments():
 
 
         if(len(check_assignments)>=1):
-            print i + "in "+ subject
+            print i + "in " + '"\033[44m' + subject + '\033[0m"'
             print "Link: " + link
             individual_details(link)
 
@@ -61,7 +67,7 @@ def check_new_forum_posts():
         link = i.parent.parent.parent.parent.parent.parent.findChild().findChild().findChildren()[0]['href']
         subject = check_posts[0].parent.parent.parent.parent.parent.parent.findChild().findChild().findChildren()[0]['title']
         if(len(check_posts)>=1):
-            print i + "in " + subject
+            print i + "in " + '"\033[44m' + subject + '"\033[0m'
             print "Link: " + link + "\n"
 
 if __name__ == '__main__':

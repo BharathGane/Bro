@@ -119,6 +119,8 @@ def application_open(response_json):
 			os.system('libreoffice')
 		if(response_json['result']['parameters']['Applications'] == "Vim"):
 			os.system('vim')
+		if(response_json['result']['parameters']['Applications'] == "Calculator"):
+			os.system('gnome-calculator')
 
 def increase_screenbright(response_json):
 	print "Increasing the screen brightness by " + response_json['result']['parameters']['number'] + " percent"
