@@ -52,7 +52,6 @@ def check_new_assignments():
         link = i.parent.parent.parent.parent.parent.parent.findChild().findChild().findChildren()[0]['href']
         subject = i.parent.parent.parent.parent.parent.parent.findChild().findChild().findChildren()[0]['title']
 
-
         if(len(check_assignments)>=1):
             print i + "in " + '"\033[44m' + subject + '\033[0m"'
             print "Link: " + link
