@@ -17,7 +17,7 @@ With windows having cortana, and iOS having Siri, it's time we bring in Bro, as 
 8. Set, increase and decrease volume of audio playback
 
 <b> Installing Dependencies </b>
-<p>
-chmod +x INSTALL.sh </br> 
-./INSTALL.sh </br>
-</p>
+```sh
+chmod +x INSTALL.sh
+./INSTALL
+```
