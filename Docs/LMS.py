@@ -12,7 +12,7 @@ from bs4 import BeautifulSoup
 
 s = requests.session()
 
-payload={'username':'IMTXXXXXXX', 'password':'XXXXXXX'}
+payload={'username':'IMT2015521', 'password':'ashokthiru24597'}
 
 def login():
     url = s.post('https://lms.iiitb.ac.in/moodle/login/index.php', data=payload, verify=False)
@@ -42,10 +42,13 @@ def individual_details(link):
     print "\n"
 
 def download(link,file_name, download_directory):
-    data = urllib2.urlopen(link).read()
     print "\n \t Downloading " + file_name
-    with open(download_directory + "/" + file_name, "wb" ) as file:
-        file.write(data)
+    data = s.get(link, stream=True)
+    with open(download_directory+'/'+file_name, 'wb') as file:
+        for chunk in data.iter_content(chunk_size=1024):
+            if chunk:
+                file.write(chunk)
+                file.flush()
 
 def get_files(link, download_directory):
     url = s.get(link)
