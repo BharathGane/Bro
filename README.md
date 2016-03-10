@@ -5,7 +5,7 @@ With windows having cortana, and iOS having Siri, it's time we bring in Bro, as 
 
 (This concept is under development)
 
-<b> Functionality Available <b> (as of now)
+<b> Functionality Available </b> (as of now)
 
 1. Google and DuckDuckGo web search
 2. Google, Facebook, YouTube, Gmail, Outlook, GitHub, DuckDuckGo, Quora, Kickass, PirateBay, Yify, Shush launch using selenium on Firefox
