@@ -1,6 +1,6 @@
 #!/usr/local/bin/env python
 
-# This script is my first try at web scraping, aimed at students of IIIT-B, to quickly check notifications, new assignments and forum posts in LMS portal.
+# This script is my first try at web scraping, aimed at students of IIIT-B, to quickly check notifications, new assignments / forum posts and downloading files from LMS portal.
 # Script is under development, further features will be added as and when I find free time :p ;)
 
 import re
