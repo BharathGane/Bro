@@ -20,5 +20,5 @@ With windows having cortana, and iOS having Siri, it's time we bring in Bro, as 
 
 * Clone this repository using ``` git clone https://github.com/adityathiru/Bro.git```
 * ``` cd Bro```
-* Install the dependencies using ``` ./INSTALL```
+* Install the dependencies using ``` ./INSTALL.sh```
 * Make your workspace cool and productive with Bro !
