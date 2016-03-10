@@ -3,7 +3,7 @@
 
 With windows having cortana, and iOS having Siri, it's time we bring in Bro, as an assistant.
 
-(This concept is under development)
+<b> (This concept is under development) </b>
 
 <b> Functionality Available </b> (as of now)
 
