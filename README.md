@@ -1,5 +1,5 @@
 # Bro
-Bro, i'm a personal assistant built for linux on python.
+<b> ## Bro, I'm a personal assistant built for Linux on Python </b>
 
 With windows having cortana, and iOS having Siri, it's time we bring in Bro, as an assistant.
 
@@ -16,8 +16,9 @@ With windows having cortana, and iOS having Siri, it's time we bring in Bro, as 
 7. Mute, Unmute audio playback
 8. Set, increase and decrease volume of audio playback
 
-<b> Installing Dependencies </b>
-```sh
-chmod +x INSTALL.sh
-./INSTALL
-```
+<b> Want to get your Bro up and running ? </b>
+
+* Clone this repository using ```sh git clone https://github.com/adityathiru/Bro.git```
+* ```sh cd Bro```
+* Install the dependencies using ```sh ./INSTALL```
+* Make your workspace cool and productive with Bro !
