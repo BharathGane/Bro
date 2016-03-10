@@ -12,7 +12,7 @@ from bs4 import BeautifulSoup
 
 s = requests.session()
 
-payload={'username':'IMT2015521', 'password':'ashokthiru24597'}
+payload={'username':'IMT2015XXXX', 'password':'XXXX'}
 
 def login():
     url = s.post('https://lms.iiitb.ac.in/moodle/login/index.php', data=payload, verify=False)
