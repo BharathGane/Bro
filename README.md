@@ -20,7 +20,7 @@ With windows having cortana, and iOS having Siri, it's time we bring in Bro, as 
 # Upcoming features
 
 1. TtS replies
-2. Add support to do basic math problems, set remainders, small talk, lateest news updates etc. 
+2. Add support to do basic math problems, set remainders, small talk, latest news updates etc. 
 3. Scan thru files and directories with voice support
 4. Implement hand gestures to get tasks done using OpenCV
 5. Act as a medium (server) to communicate between internet enabled things (IoT)
