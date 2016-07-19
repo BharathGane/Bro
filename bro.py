@@ -166,78 +166,78 @@ def decrease_volume(response_json):
 	print response_json['result']['fulfillment']['speech']
 
 def main():
-    resampler = apiai.Resampler(source_samplerate=RATE)
-    vad = apiai.VAD()
-    ai = apiai.ApiAI(CLIENT_ACCESS_TOKEN, SUBSCRIPTION_KEY)
-    request = ai.voice_request()
-    request.lang = 'en'
+	resampler = apiai.Resampler(source_samplerate=RATE)
+	vad = apiai.VAD()
+	ai = apiai.ApiAI(CLIENT_ACCESS_TOKEN, SUBSCRIPTION_KEY)
+	request = ai.voice_request()
+	request.lang = 'en'
 
-    def stream_callback(in_data, frame_count, time_info, status):
-        frames, data = resampler.resample(in_data, frame_count)
-        state = vad.processFrame(frames)
-        request.send(data)
+	def stream_callback(in_data, frame_count, time_info, status):
+		frames, data = resampler.resample(in_data, frame_count)
+		state = vad.processFrame(frames)
+		request.send(data)
 
-        if (state == 1):
-            return in_data, pyaudio.paContinue
-        else:
-            return in_data, pyaudio.paComplete
+		if (state == 1):
+			return in_data, pyaudio.paContinue
+		else:
+			return in_data, pyaudio.paComplete
 
-    p = pyaudio.PyAudio()
+	p = pyaudio.PyAudio()
 
-    stream = p.open(format=FORMAT,
-                    channels=CHANNELS, 
-                    rate=RATE, 
-                    input=True,
-                    output=False,
-                    frames_per_buffer=CHUNK,
-                    stream_callback=stream_callback)
+	stream = p.open(format=FORMAT,
+					channels=CHANNELS, 
+					rate=RATE, 
+					input=True,
+					output=False,
+					frames_per_buffer=CHUNK,
+					stream_callback=stream_callback)
 
 
-    print ("Hello bro, what would you like to do ?!")
-    stream.start_stream()
+	print ("Hello bro, what would you like to do ?!")
+	stream.start_stream()
 
-    try:
-        while stream.is_active():
-            time.sleep(0.1)
-    except Exception:
-        raise e
-    except KeyboardInterrupt:
-        pass
+	try:
+		while stream.is_active():
+			time.sleep(0.1)
+	except Exception:
+		raise e
+	except KeyboardInterrupt:
+		pass
 
-    stream.stop_stream()
-    stream.close()
-    p.terminate()
+	stream.stop_stream()
+	stream.close()
+	p.terminate()
 
-    print ("Give me a second bro,... Will be back with what you want right away!")
-    response = request.getresponse()
+	print ("Give me a second bro,... Will be back with what you want right away!")
+	response = request.getresponse()
 
-    response_string = response.read().decode('utf-8')
-    response_json = json.loads(response_string)
+	response_string = response.read().decode('utf-8')
+	response_json = json.loads(response_string)
 
-    if(response_json['result']['source'] == 'domains' and response_json['result']['action'] == 'web.search'):
-    	web_search(response_json)
-    elif(response_json['result']['source'] == 'agent' and response_json['result']['action'] == 'browse.open'):
-    	webpage_open(response_json)
-    elif(response_json['result']['source'] == 'agent' and response_json['result']['action'] == 'app.open'):
-    	application_open(response_json)
-    elif(response_json['result']['source'] == 'agent' and response_json['result']['action'] == 'increase.brightness'):
-    	increase_screenbright(response_json)
-    elif(response_json['result']['source'] == 'agent' and response_json['result']['action'] == 'decrease.brightness'):
-    	decrease_screenbright(response_json)
-    elif(response_json['result']['source'] == 'agent' and response_json['result']['action'] == 'capture.screen'):
-    	screenshot(response_json)
-    elif(response_json['result']['source'] == 'agent' and response_json['result']['action'] == 'lms.notif'):
-    	LMSCheck(response_json)
-    elif(response_json['result']['source'] == 'agent' and response_json['result']['action'] == 'set.volume'):
-    	set_volume(response_json)
-    elif(response_json['result']['source'] == 'agent' and response_json['result']['action'] == 'mute.volume'):
-    	mute(response_json)
-    elif(response_json['result']['source'] == 'agent' and response_json['result']['action'] == 'unmute.volume'):
-    	unmute(response_json)
-    elif(response_json['result']['source'] == 'agent' and response_json['result']['action'] == 'increase.volume'):
-    	increase_volume(response_json)
-    elif(response_json['result']['source'] == 'agent' and response_json['result']['action'] == 'decrease.volume'):
-    	decrease_volume(response_json)
+	if(response_json['result']['source'] == 'domains' and response_json['result']['action'] == 'web.search'):
+		web_search(response_json)
+	elif(response_json['result']['source'] == 'agent' and response_json['result']['action'] == 'browse.open'):
+		webpage_open(response_json)
+	elif(response_json['result']['source'] == 'agent' and response_json['result']['action'] == 'app.open'):
+		application_open(response_json)
+	elif(response_json['result']['source'] == 'agent' and response_json['result']['action'] == 'increase.brightness'):
+		increase_screenbright(response_json)
+	elif(response_json['result']['source'] == 'agent' and response_json['result']['action'] == 'decrease.brightness'):
+		decrease_screenbright(response_json)
+	elif(response_json['result']['source'] == 'agent' and response_json['result']['action'] == 'capture.screen'):
+		screenshot(response_json)
+	elif(response_json['result']['source'] == 'agent' and response_json['result']['action'] == 'lms.notif'):
+		LMSCheck(response_json)
+	elif(response_json['result']['source'] == 'agent' and response_json['result']['action'] == 'set.volume'):
+		set_volume(response_json)
+	elif(response_json['result']['source'] == 'agent' and response_json['result']['action'] == 'mute.volume'):
+		mute(response_json)
+	elif(response_json['result']['source'] == 'agent' and response_json['result']['action'] == 'unmute.volume'):
+		unmute(response_json)
+	elif(response_json['result']['source'] == 'agent' and response_json['result']['action'] == 'increase.volume'):
+		increase_volume(response_json)
+	elif(response_json['result']['source'] == 'agent' and response_json['result']['action'] == 'decrease.volume'):
+		decrease_volume(response_json)
 
 if __name__ == '__main__':
-    main()
+	main()
