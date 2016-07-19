@@ -5,10 +5,10 @@ from selenium.webdriver.common.keys import Keys
 
 #Check if API.AI module is available
 try:
-    import apiai
+	import apiai
 except ImportError:
-    sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), os.pardir))
-    import apiai
+	sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), os.pardir))
+	import apiai
 
 import time
 import pyaudio
