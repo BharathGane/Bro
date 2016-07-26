@@ -1,0 +1,10 @@
+import pyaudio
+class Config(object):
+	CHUNK = 1024
+	FORMAT = pyaudio.paInt16
+	CHANNELS = 1
+	RATE = 44100
+	RECORD_SECONDS = 5
+
+	CLIENT_ACCESS_TOKEN = 'a36e008c5d284b279d6226e69c89d92d'
+	SUBSCRIPTION_KEY = '46493cf0-9ccb-4813-8451-9b300b3624e7' 
