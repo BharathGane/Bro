@@ -1,6 +1,6 @@
 from selenium import webdriver
 class web(object):
-	def web_search(response_json):
+	def web_search(self,response_json):
 		print response_json['result']['metadata']['html']
 		print response_json['result']['metadata']['speech']
 		if(response_json['result']['source'] == 'domains' and response_json['result']['action'] == 'web.search'):
@@ -13,7 +13,7 @@ class web(object):
 				duck_search = "https://duckduckgo.com/?q=" + response_json['result']['parameters']['q']
 				driver.get(duck_search)
 
-	def webpage_open(response_json):
+	def webpage_open(self,response_json):
 		Websites = {'Google', 'Facebook', 'YouTube', 'Gmail', 'Outlook', 'GitHub', 'DuckDuckGo', 'Quora', 'Kickass', 'Pirate Bay', 'Yify', 'Shush'}
 		print "Opening " + response_json['result']['parameters']['Websites'] + " ..."
 		print response_json['result']['fulfillment']['speech']
@@ -67,5 +67,5 @@ class web(object):
 				shush = "https://shush.se/"
 				driver.get(shush)
 
-	def LMSCheck(response_json):
+	def LMSCheck(self,response_json):
 		os.system('cd Docs && python LMS.py')		

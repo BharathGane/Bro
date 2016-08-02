@@ -64,29 +64,29 @@ def main():
 	response_json = json.loads(response_string)
 
 	if(response_json['result']['source'] == 'domains' and response_json['result']['action'] == 'web.search'):
-		web.web_search(response_json)
+		web().web_search(response_json)
 	elif(response_json['result']['source'] == 'agent' and response_json['result']['action'] == 'browse.open'):
-		web.webpage_open(response_json)
+		web().webpage_open(response_json)
 	elif(response_json['result']['source'] == 'agent' and response_json['result']['action'] == 'app.open'):
-		sys_service.application_open(response_json)
+		sys_service().application_open(response_json)
 	elif(response_json['result']['source'] == 'agent' and response_json['result']['action'] == 'increase.brightness'):
-		sys_service.increase_screenbright(response_json)
+		sys_service().increase_screenbright(response_json)
 	elif(response_json['result']['source'] == 'agent' and response_json['result']['action'] == 'decrease.brightness'):
-		sys_service.decrease_screenbright(response_json)
+		sys_service().decrease_screenbright(response_json)
 	elif(response_json['result']['source'] == 'agent' and response_json['result']['action'] == 'capture.screen'):
-		sys_service.screenshot(response_json)
+		sys_service().screenshot(response_json)
 	elif(response_json['result']['source'] == 'agent' and response_json['result']['action'] == 'lms.notif'):
 		web.LMSCheck(response_json)
 	elif(response_json['result']['source'] == 'agent' and response_json['result']['action'] == 'set.volume'):
-		sys_service.set_volume(response_json)
+		sys_service().set_volume(response_json)
 	elif(response_json['result']['source'] == 'agent' and response_json['result']['action'] == 'mute.volume'):
-		sys_service.mute(response_json)
+		sys_service().mute(response_json)
 	elif(response_json['result']['source'] == 'agent' and response_json['result']['action'] == 'unmute.volume'):
-		sys_service.unmute(response_json)
+		sys_service().unmute(response_json)
 	elif(response_json['result']['source'] == 'agent' and response_json['result']['action'] == 'increase.volume'):
-		sys_service.increase_volume(response_json)
+		sys_service().increase_volume(response_json)
 	elif(response_json['result']['source'] == 'agent' and response_json['result']['action'] == 'decrease.volume'):
-		sys_service.decrease_volume(response_json)
+		sys_service().decrease_volume(response_json)
 
 if __name__ == '__main__':
 	main()
